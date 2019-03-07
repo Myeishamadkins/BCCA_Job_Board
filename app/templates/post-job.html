@@ -1,0 +1,92 @@
+{% extends 'base.html' %} {% block body %}
+<div class="mt-3 container card">
+    <div class="card-body">
+        <h1>Post Your Job</h1>
+        <div class="container">
+            <form action="/action_page.php">
+                <div class="row">
+                    <div class="col-25">
+                        <label class="post-label" for="companyName">Company Name:</label>
+                    </div>
+                    <div class="col-75">
+                        <input
+                            type="text"
+                            id="companyName"
+                            name="companyName"
+                            placeholder="Enter your company Name..."
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label class="post-label" for="jobTitle">Job Title:</label>
+                    </div>
+                    <div class="col-75">
+                        <input
+                            type="text"
+                            id="jobTitle"
+                            name="jobTitle"
+                            placeholder="Enter your job title..."
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label class="post-label" for="jobLocation">Job Location:</label>
+                    </div>
+                    <div class="col-75">
+                        <input
+                            type="text"
+                            id="jobLocation"
+                            name="jobLocation"
+                            placeholder="Enter your job location..."
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                      <label for="employmentType">Employment Type</label>
+                    </div>
+                    <div class="col-75">
+                      <select id="employmentType" name="employmentType">
+                        <option value="full-time">full-time</option>
+                        <option value="part-time">part-time</option>
+                        <option value="contract">contract</option>
+                        <option value="temporary">temporary</option>
+                        <option value="volunteer">volunteer</option>
+                        <option value="internship">internship</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                      <label for="seniorityLevel">Seniority Level</label>
+                    </div>
+                    <div class="col-75">
+                      <select id="seniorityLevel" name="seniorityLevel">
+                        <option value="internship">internship</option>
+                        <option value="entry">entry level</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label class="post-label" for="jobDescription">job Description</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea
+                            id="jobDescription"
+                            name="jobDescription"
+                            placeholder="Write something.."
+                            style="height:200px"
+                        ></textarea>
+                    </div>
+                </div>
+                <div class="row"></div>
+                    <input type="submit" value="Submit"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
