@@ -1,6 +1,11 @@
+:root{
+  --bcca-brown: #3b1b0c;
+  --bcca-blue: #83cff2;
+}
+
 .bg-bcca-color {
 
-    background-color: #3b1b0c
+    background-color: var(--bcca-brown);
 }
 
 .text-bcca {
@@ -107,3 +112,8 @@
       margin-top: 0;
     }
   }
+
+  .job-card{
+    border-color: var(--bcca-brown)
+  }
+  
