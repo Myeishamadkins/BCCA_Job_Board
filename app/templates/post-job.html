@@ -3,7 +3,9 @@
     <div class="card-body">
         <h1>Post Your Job</h1>
         <div class="container">
-            <form action="/action_page.php">
+            <form action="{% url 'post-job' %}" method="POST">
+                {% csrf_token %}
+                {{form}}
                 <div class="row">
                     <div class="col-25">
                         <label class="post-label" for="companyName">Company Name:</label>
@@ -45,7 +47,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                      <label for="employmentType">Employment Type</label>
+                      <label for="employmentType">Employment Type:</label>
                     </div>
                     <div class="col-75">
                       <select id="employmentType" name="employmentType">
@@ -60,7 +62,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                      <label for="seniorityLevel">Seniority Level</label>
+                      <label for="seniorityLevel">Seniority Level:</label>
                     </div>
                     <div class="col-75">
                       <select id="seniorityLevel" name="seniorityLevel">
@@ -71,7 +73,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label class="post-label" for="jobDescription">job Description</label>
+                        <label class="post-label" for="jobDescription">job Description:</label>
                     </div>
                     <div class="col-75">
                         <textarea
@@ -83,7 +85,7 @@
                     </div>
                 </div>
                 <div class="row"></div>
-                    <input type="submit" value="Post Job"></div>
+                    <button class="btn btn-success my-3" type="submit">Post Job</button>
                 </div>
             </form>
         </div>

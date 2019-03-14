@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block body %}
 <div class="home-container d-flex m-8">
+    <h1>Admin Home Page</h1>
     <div class="row justify-content-center">
         {% for post in post_job %}
         <div class="col-sm-5 m-3">
@@ -9,9 +10,12 @@
                     <p>{{ post.companyName }}</p>
                     <p>{{ post.jobLocation }}</p>
                     <p class="card-text">
-                        {{ post.jobDescription | truncatechars:200 }}
+                        {{ post.jobDescription | truncatechars: 200 }}
                     </p>
-                    <a href="{% url 'details' post.id %}" class="btn btn-primary">
+                    <a
+                        href="{% url 'details' post.id %}"
+                        class="btn btn-primary"
+                    >
                         view job
                     </a>
                 </div>

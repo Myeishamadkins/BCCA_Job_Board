@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block body %}
+<div class="d-flex justify-content-center">
+    <div class="col-sm-6">
+        <div class="card job-card">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{post_job.jobTitle}}</h5>
+                <p>{{post_job.companyName}}</p>
+                <p>{{post_job.jobLocation}}</p>
+                <p>{{post_job.employmentType}}</p>
+                <p>{{post_job.seniorityLevel}}</p>
+                <p class="card-text">
+                    {{post_job.jobDescription}}
+                </p>
+                <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+                <!-- <a href="{% url 'apply' post_job.id %}" class="btn btn-primary">Apply</a> -->
+            </div>
+        </div>
+        <div class="card">
+            
+        </div>
+    </div>
+    {% endblock body %}
+</div>
