@@ -20,4 +20,5 @@ from app import views
 urlpatterns = [
     path("", views.HomePage.as_view(), name="home"),
     path("/post-job", views.PostJob.as_view(), name='post-job'),
+    path('/details/<int:id>', views.JobDetails.as_view(), name='details'),
 ]
