@@ -19,8 +19,9 @@ from app import views
 
 urlpatterns = [
     path("", views.HomePage.as_view(), name="home"),
-    path("/post-job", views.PostJob.as_view(), name='post-job'),
-    path('/details/<int:id>', views.JobDetails.as_view(), name='details'),
-    path('/apply/<int:id>', views.ApplyToJob.as_view(), name='apply'),
+    path("post-job", views.PostJob.as_view(), name='post-job'),
+    path('details/<int:id>', views.JobDetails.as_view(), name='details'),
+    path('apply/<int:id>', views.ApplyToJob.as_view(), name='apply'),
+    path('comment/<int:id>', views.Comment.as_view(), name='comment'),
     # path('/apply/admin', views.Admin.as_view(), name='admin'),
 ]
