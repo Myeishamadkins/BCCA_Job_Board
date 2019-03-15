@@ -57,6 +57,21 @@ class ApplyToJob(View):
             return render(request, 'apply.html', {'form': form})
 
 
+class Comment(View):
+    def get(self, request, id):
+        return render(request, 'comment.html', {'form': forms.CommentForm()})
+
+    def post(self, request, id):
+        form = forms.CommentForm(data=request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            comment = form.cleaned_data['comment']
+            models.Comment.submit_comment(name, comment, id)
+            return redirect('home')
+        else:
+            return render(request, 'comment.html', {'form': form})
+
+
 # class Admin(View):
 #     def get(self, request):
 #         return render(request, 'admin.html',
