@@ -61,3 +61,20 @@ class Application(models.Model):
             companyNote=companyNote,
             post_job_id=post_job_id).save()
 
+
+class Comment(models.Model):
+    name = models.TextField()
+    comment = models.TextField()
+    post_comment = models.ForeignKey(PostJob, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return '''
+        Name: {}
+        Comment: {}
+        '''.format(self.name, self.comment, self.post_comment)
+
+    @staticmethod
+    def submit_comment(name, comment, post_comment_id):
+        Comment(
+            name=name, comment=comment,
+            post_comment_id=post_comment_id).save()
