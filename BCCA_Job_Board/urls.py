@@ -23,5 +23,5 @@ urlpatterns = [
     path('details/<int:id>', views.JobDetails.as_view(), name='details'),
     path('apply/<int:id>', views.ApplyToJob.as_view(), name='apply'),
     path('comment/<int:id>', views.Comment.as_view(), name='comment'),
-    # path('/apply/admin', views.Admin.as_view(), name='admin'),
+    path('admin', views.Admin.as_view(), name='admin'),
 ]
