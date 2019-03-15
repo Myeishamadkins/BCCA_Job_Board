@@ -72,7 +72,7 @@ class Comment(View):
             return render(request, 'comment.html', {'form': form})
 
 
-# class Admin(View):
-#     def get(self, request):
-#         return render(request, 'admin.html',
-#                       {'post_job': models.PostJob.objects.all()})
+class Admin(View):
+    def get(self, request):
+        return render(request, 'admin.html',
+                      {'post_job': models.PostJob.objects.all()})
