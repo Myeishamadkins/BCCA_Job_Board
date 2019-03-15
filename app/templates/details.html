@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block body %}
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center mb-4">
     <div class="col-sm-6">
         <div class="card job-card">
             <div class="card-body">
@@ -22,7 +22,19 @@
                 >
             </div>
         </div>
-        <div class="card"></div>
     </div>
-    {% endblock body %}
 </div>
+<p class="text-center" style="font-size:1.25rem">Comments</p>
+<div class="d-flex justify-content-center">
+    <div class="col-sm-6">
+        <div class="card job-card">
+            {% for comments in post_job.comment_set.all %}
+            <div class="card-body comment-card">
+                <p>{{ comments.name }}</p>
+                <p>{{ comments.comment }}</p>
+            </div>
+            {% endfor%}
+        </div>
+    </div>
+</div>
+{% endblock body %}
