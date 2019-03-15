@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block body %}
+<div class="mt-3 container mb-3 card">
+    <div class="card-body">
+        <h1>Post Your Comment</h1>
+        <div class="container">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-25">
+                        <label class="post-label" for="name">Name:</label>
+                    </div>
+                    <div class="col-75">
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your Name..."
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label class="post-label" for="comment">Comment:</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea
+                            id="comment"
+                            name="comment"
+                            placeholder="Write something.."
+                            style="height:200px"
+                        ></textarea>
+                    </div>
+                </div>
+                <div class="row"></div>
+                <button class="btn btn-success my-3" type="submit">
+                    Post Comment
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
