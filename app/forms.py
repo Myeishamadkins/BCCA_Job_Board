@@ -21,3 +21,11 @@ class ApplicationForm(forms.Form):
         label='Note to Company:',
         widget=forms.Textarea(
             attrs={'placeholder': 'Enter your note here...'}))
+
+
+class CommentForm(forms.Form):
+    name = forms.CharField(label='Name:')
+    comment = forms.CharField(
+        label='Comment:',
+        widget=forms.Textarea(
+            attrs={'placeholder': 'Enter your comment here...'}))
