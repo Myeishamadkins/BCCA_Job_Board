@@ -12,9 +12,6 @@
                     {{ post_job.jobDescription }}
                 </p>
                 <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
-                <a href="{% url 'apply' post_job.id %}" class="btn btn-primary"
-                    >Apply</a
-                >
                 <a
                     href="{% url 'comment' post_job.id %}"
                     class="btn btn-primary"

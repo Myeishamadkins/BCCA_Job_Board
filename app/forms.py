@@ -13,7 +13,7 @@ class PostJobForm(forms.Form):
             attrs={'placeholder': 'Enter your job description here'}))
 
 
-class ApplicationForm(forms.Form):
+# class ApplicationForm(forms.Form):
     name = forms.CharField(label='Name:')
     email = forms.EmailField(label='Email:')
     phoneNumber = forms.CharField(label='Phone Number:')

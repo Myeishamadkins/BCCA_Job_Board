@@ -35,37 +35,37 @@ class PostJob(models.Model):
             jobDescription=jobDescription).save()
 
 
-class Application(models.Model):
-    name = models.TextField()
-    email = models.EmailField()
-    phoneNumber = models.TextField()
-    companyNote = models.TextField()
-    post_job = models.ForeignKey(PostJob, on_delete=models.PROTECT)
+# class Application(models.Model):
+#     name = models.TextField()
+#     email = models.EmailField()
+#     phoneNumber = models.TextField()
+#     companyNote = models.TextField()
+#     post_job = models.ForeignKey(PostJob, on_delete=models.PROTECT)
 
-    def __str__(self):
-        return '''
-        Name: {}
-        Email: {}
-        Phone Number: {}
-        Note to Company: {}
-        Application for Job: {}
-        '''.format(self.name, self.email, self.phoneNumber, self.companyNote,
-                   self.post_job)
+#     def __str__(self):
+#         return '''
+#         Name: {}
+#         Email: {}
+#         Phone Number: {}
+#         Note to Company: {}
+#         Application for Job: {}
+#         '''.format(self.name, self.email, self.phoneNumber, self.companyNote,
+#                    self.post_job)
 
-    @staticmethod
-    def submit_app(name, email, phoneNumber, companyNote, post_job_id):
-        Application(
-            name=name,
-            email=email,
-            phoneNumber=phoneNumber,
-            companyNote=companyNote,
-            post_job_id=post_job_id).save()
+#     @staticmethod
+#     def submit_app(name, email, phoneNumber, companyNote, post_job_id):
+#         Application(
+#             name=name,
+#             email=email,
+#             phoneNumber=phoneNumber,
+#             companyNote=companyNote,
+#             post_job_id=post_job_id).save()
 
 
 class Comment(models.Model):
     name = models.TextField()
     comment = models.TextField()
-    post_comment = models.ForeignKey(PostJob, on_delete=models.PROTECT)
+    post_comment = models.ForeignKey(PostJob, on_delete=models.CASCADE)
 
     def __str__(self):
         return '''

@@ -27,7 +27,7 @@
 
 #headerBkgImg {
     max-width: 100%;
-    background-image: url("/static/imgs/BaseCamp_HeaderFeature_1.jpg");
+    background-image: url("{% static 'imgs/BaseCamp_HeaderFeature_1.jpg' %}");
     background-position: center;
     height: 132px;
 }
@@ -132,7 +132,7 @@ input[type="submit"] {
     padding-left: 50rem;
 }
 
-.comment-card{
+.comment-card {
     border: 1px;
     border-bottom-color: #3b1b0c;
     border-bottom-style: dashed;

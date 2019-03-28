@@ -3,6 +3,7 @@ from django.views import View
 from app import forms
 from app import models
 from django.shortcuts import redirect, render
+from django.db.models import Q
 
 
 # Create your views here.
@@ -39,24 +40,6 @@ class JobDetails(View):
                       {'post_job': models.PostJob.objects.get(id=id)})
 
 
-class ApplyToJob(View):
-    def get(self, request, id):
-        return render(request, 'apply.html', {'form': forms.ApplicationForm()})
-
-    def post(self, request, id):
-        form = forms.ApplicationForm(data=request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            phoneNumber = form.cleaned_data['phoneNumber']
-            companyNote = form.cleaned_data['companyNote']
-            models.Application.submit_app(name, email, phoneNumber,
-                                          companyNote, id)
-            return redirect('home')
-        else:
-            return render(request, 'apply.html', {'form': form})
-
-
 class Comment(View):
     def get(self, request, id):
         return render(request, 'comment.html', {'form': forms.CommentForm()})
@@ -74,5 +57,19 @@ class Comment(View):
 
 class Admin(View):
     def get(self, request):
+        query_list = models.PostJob.objects.all()
+        query = request.GET.get("q")
+        if query:
+            query_list = query_list.filter(
+                Q(companyName__contains=query) | Q(jobTitle__contains=query)
+                | Q(jobLocation__contains=query)
+                | Q(employmentType__contains=query)
+                | Q(seniorityLevel__contains=query)).distinct()
         return render(request, 'admin.html',
                       {'post_job': models.PostJob.objects.all()})
+
+
+class DeleteJob(View):
+    def post(self, request, id):
+        models.PostJob.objects.get(id=id).delete()
+        return redirect('admin')
