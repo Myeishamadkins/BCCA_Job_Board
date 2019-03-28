@@ -4,13 +4,20 @@
         <div class="card job-card">
             <div class="card-body">
                 <h1 class="card-title text-center">{{ post_job.jobTitle }}</h1>
-                <p>{{ post_job.companyName }}</p>
-                <p>{{ post_job.jobLocation }}</p>
-                <p>{{ post_job.employmentType }}</p>
-                <p>{{ post_job.seniorityLevel }}</p>
-                <p class="card-text">
-                    {{ post_job.jobDescription }}
-                </p>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p>{{ post_job.companyName }}</p>
+                        <p>{{ post_job.jobLocation }}</p>
+                        <p>{{ post_job.employmentType }}</p>
+                        <p>{{ post_job.seniorityLevel }}</p>
+                        <p class="card-text">
+                            {{ post_job.jobDescription }}
+                        </p>
+                    </div>
+                    <div>
+                        <img class="image-details shadow" src="{{ post_job.logo }}">
+                    </div>
+                </div>
                 <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
                 <a
                     href="{% url 'comment' post_job.id %}"

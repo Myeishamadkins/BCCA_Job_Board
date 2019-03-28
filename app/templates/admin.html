@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block body %}
 <h1 class="text-center">Admin Home Page</h1>
-<form class="container" action="" method="GET">
+<!-- <form class="container" action="" method="GET">
     <div class="d-flex">
         <input
             type="text"
@@ -11,7 +11,7 @@
         />
         <input type="submit" value="Search" class="ml-3 mb-4 btn btn-primary" />
     </div>
-</form>
+</form> -->
 <div class="home-container d-flex m-8">
     <div class="card-body">
         <div class="row justify-content-center">
@@ -19,11 +19,18 @@
             <div class="col-sm-5 m-3">
                 <div class="card job-card">
                     <div class="card-body">
-                        <p class="card-title" style="font-size:1.25rem">
-                            <b>{{ post.jobTitle }}</b>
-                        </p>
-                        <p>{{ post.companyName }}</p>
-                        <p>{{ post.jobLocation }}</p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <p class="card-title" style="font-size:1.25rem">
+                                    <b>{{ post.jobTitle }}</b>
+                                </p>
+                                <p>{{ post.companyName }}</p>
+                                <p>{{ post.jobLocation }}</p>
+                            </div>
+                            <div>
+                                <img class="image-details shadow" src="{{ post.logo }}">
+                            </div>
+                        </div>
                         <p class="card-text">
                             {{ post.jobDescription | truncatechars:200 }}
                         </p>

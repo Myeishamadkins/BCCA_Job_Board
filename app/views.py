@@ -6,7 +6,6 @@ from django.shortcuts import redirect, render
 from django.db.models import Q
 
 
-# Create your views here.
 class HomePage(View):
     def get(self, request):
         return render(request, 'home.html',
@@ -20,18 +19,19 @@ class PostJob(View):
     def post(self, request):
         form = forms.PostJobForm(data=request.POST)
         if form.is_valid():
+            logo = form.cleaned_data['logo']
             companyName = form.cleaned_data['companyName']
             jobTitle = form.cleaned_data['jobTitle']
             jobLocation = form.cleaned_data['jobLocation']
             employmentType = form.cleaned_data['employmentType']
             seniorityLevel = form.cleaned_data['seniorityLevel']
             jobDescription = form.cleaned_data['jobDescription']
-            models.PostJob.submit_job(companyName, jobTitle, jobLocation,
+            models.PostJob.submit_job(logo, companyName, jobTitle, jobLocation,
                                       employmentType, seniorityLevel,
                                       jobDescription)
             return redirect('home')
         else:
-            render(request, 'post-job.html', {'form': form})
+            return render(request, 'post-job.html', {'form': form})
 
 
 class JobDetails(View):

@@ -4,23 +4,28 @@
     <div class="row justify-content-center">
         {% for post in post_job %}
         <div class="col-sm-5 m-3">
-            <div class="card job-card">
-                <div class="card-body">
-                    <p class="card-title" style="font-size:1.25rem">
-                        <b>{{ post.jobTitle }}</b>
-                    </p>
-                    <p>{{ post.companyName }}</p>
-                    <p>{{ post.jobLocation }}</p>
-                    <p class="card-text">
-                        {{ post.jobDescription | truncatechars:200 }}
-                    </p>
-                    <a
-                        href="{% url 'details' post.id %}"
-                        class="btn btn-primary"
-                    >
-                        view job
-                    </a>
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="card-title" style="font-size:1.25rem">
+                            <b>{{ post.jobTitle }}</b>
+                        </p>
+                        <p>{{ post.companyName }}</p>
+                        <p>{{ post.jobLocation }}</p>
+                    </div>
+                    <div>
+                        <img
+                            class="image-details shadow"
+                            src="{{ post.logo }}"
+                        />
+                    </div>
                 </div>
+                <p class="card-text">
+                    {{ post.jobDescription | truncatechars:200 }}
+                </p>
+                <a href="{% url 'details' post.id %}" class="btn btn-primary">
+                    view job
+                </a>
             </div>
         </div>
         {% endfor %}
