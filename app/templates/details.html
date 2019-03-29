@@ -15,7 +15,10 @@
                         </p>
                     </div>
                     <div>
-                        <img class="image-details shadow" src="{{ post_job.logo }}">
+                        <img
+                            class="image-details shadow"
+                            src="{{ post_job.logo }}"
+                        />
                     </div>
                 </div>
                 <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
@@ -37,6 +40,12 @@
                 <p>{{ comments.name }}</p>
                 <p>{{ comments.comment }}</p>
             </div>
+            <form action="{% url 'comment-delete' comments.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger mb-3">
+                    Delete
+                </button>
+            </form>
             {% endfor%}
         </div>
     </div>

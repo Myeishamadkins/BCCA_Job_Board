@@ -3,6 +3,7 @@ from django.db import models
 
 class PostJob(models.Model):
     logo = models.URLField()
+    date = models.DateTimeField(auto_now=True)
     companyName = models.TextField()
     jobTitle = models.TextField()
     jobLocation = models.TextField()

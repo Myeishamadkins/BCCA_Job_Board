@@ -20,9 +20,13 @@ from app import views
 urlpatterns = [
     path("", views.HomePage.as_view(), name="home"),
     path("post-job", views.PostJob.as_view(), name='post-job'),
+    path("az", views.AToZ.as_view(), name='az'),
+    path("newold", views.NewOld.as_view(), name='newold'),
+    path("oldnew", views.OldNew.as_view(), name='oldnew'),
     path('details/<int:id>', views.JobDetails.as_view(), name='details'),
     # path('apply/<int:id>', views.ApplyToJob.as_view(), name='apply'),
     path('comment/<int:id>', views.Comment.as_view(), name='comment'),
     path('admin', views.Admin.as_view(), name='admin'),
+    path('comment/<int:id>/delete', views.CommentDelete.as_view(), name='comment-delete'),
     path('post-job/<int:id>/delete', views.DeleteJob.as_view(), name='delete-job'),
 ]
